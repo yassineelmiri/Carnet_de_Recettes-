@@ -41,7 +41,7 @@ options
 //         'prenom'=>$request->prenom,
 //     ]);
 // });
-Route::get('/',[HomeController::class,'index']);
-Route::get('/setting',[ProfilController::class,'index']);
-Route::get('/profile',[InformationsController::class,'index']);
+Route::get('/',[HomeController::class,'index'])->name('homepage');
+Route::get('/setting',[ProfilController::class,'index'])->name('setting.index');
+Route::get('/profiles',[InformationsController::class,'index'])->name('profiles.index');
 
