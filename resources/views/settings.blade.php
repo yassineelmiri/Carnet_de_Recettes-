@@ -1,6 +1,3 @@
-@extends('layouts.master')
-@section('title')
-    settings
-@endsection
-@section('main')
-@endsection
+<x-master title="setting">
+
+</x-master>

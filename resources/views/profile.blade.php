@@ -1,7 +1,3 @@
-@extends('layouts.master')
-@section('title')
-    profile
-@endsection
+<x-master title="Profile">
 
-@section('main')
-@endsection
+</x-master>

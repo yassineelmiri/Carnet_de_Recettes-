@@ -1,31 +1,17 @@
+<x-master title="Page Home">
+    <x-alert type="warning">
+        <strong>type 1</strong>
+    </x-alert>
 
-    @extends('layouts.master')
-@section('title')
-    home page
-@endsection
-    @section('main')
-    <h1>Bonjour<x-index-user nom='yassine'/> </h1>
-    @if (count($users) > 0)
-        <h3>les recette</h3>
-        <table border='1'  id="example"  width="100%">
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Content</th>
-            </tr>
-            @foreach ($users as $user)
-                <tr>
-                    <td>{{ $user['id'] }}</td>
-                    <td>{{ $user['nom'] }}</td>
-                    <td>{{ $user['content'] }}</td>
-                </tr>
-            @endforeach
-        </table>
-        
-    @else
-        pas des users sur l'instant
-    @endif
-    @endsection
-  
+    <x-alert type="danger">
+        <strong>type 2</strong>
+    </x-alert>
 
+    <x-alert type="success">
+        <strong>type 3</strong>
+    </x-alert>
+    <h1>Bonjour Mr : yassine</h1>
 
+    <x-index-user :users='$users' />
+
+</x-master>
