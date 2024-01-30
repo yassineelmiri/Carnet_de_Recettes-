@@ -10,7 +10,7 @@ class ProfilController extends Controller
 {
     public function index(){
 
-        $profiles = Profile::paginate(10);
+        $profiles = Profile::paginate(9);
         return view('profile.index',compact('profiles'));
     }
     public function show(Request $request){
@@ -21,5 +21,9 @@ class ProfilController extends Controller
         //     return abort(404);
         // }
         return view('profile.show',compact('Profile')); 
+    }
+
+    public function create(){
+        return view('profile.create');
     }
 }

@@ -47,6 +47,8 @@ Route::get('/profiles/{id}',[ProfilController::class,'show'])
 ->where('id','\d+')
 ->name('profiles.show');
 
+Route::get('/profiles/create',[ProfilController::class,'create'])->name('create');
+
 Route::get('/setting',[InformationsController::class,'index'])->name('setting.index');
 
 
