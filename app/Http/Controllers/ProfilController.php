@@ -13,14 +13,15 @@ class ProfilController extends Controller
         $profiles = Profile::paginate(9);
         return view('profile.index',compact('profiles'));
     }
-    public function show(Request $request){
-        $id = $request->id;
+    public function show(Profile $profile){
+        // $id = $request->id;
 
-        $Profile =Profile::findOrFail($id);
+        // $Profile =Profile::findOrFail($id);
         // if($Profile === Null){
         //     return abort(404);
         // }
-        return view('profile.show',compact('Profile')); 
+
+        return view('profile.show',compact('profile')); 
     }
 
     public function create(){
@@ -34,10 +35,12 @@ class ProfilController extends Controller
         // $bio = $request->bio;
         //validation 
         $request->validate([
-            'name'=>'required'
+            'name'=>'required',
+            'email'=> 'required|email',
+            
         ]);
         //insertion
         Profile::create($request->post());
-        return redirect()->route('profiles.index');
+        return redirect()->route('profiles.index')->with('success','votre Compte est bien créé.');
     }
 }

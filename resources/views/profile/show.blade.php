@@ -1,9 +1,9 @@
 <x-master title="Profiles">
 
     <h3>Profiles</h3>
-    {{$Profile->id}}<br/>
-    {{$Profile->name}}<br/>
-    {{$Profile->email}}<br/>
+    {{$profile->id}}<br/>
+    {{$profile->name}}<br/>
+    {{$profile->email}}<br/>
   
 
 </x-master>

@@ -1,4 +1,4 @@
-<div class="col-sm-4">
+<div class="col-sm-4" style="width: 18rem;">
     <div class="card text-start">
         <img class="card-img-top" src="https://picsum.photos/seed/picsum/200/300" alt="Title" />
         <div class="card-body">

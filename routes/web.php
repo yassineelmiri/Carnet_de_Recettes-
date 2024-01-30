@@ -42,12 +42,13 @@ options
 //     ]);
 // });
 Route::get('/',[HomeController::class,'index'])->name('homepage');
+Route::get('/profiles/create',[ProfilController::class,'create'])->name('create');
 Route::get('/profiles',[ProfilController::class,'index'])->name('profiles.index');
-Route::get('/profiles/{id}',[ProfilController::class,'show'])
+Route::get('/profiles/{profile}',[ProfilController::class,'show'])
 ->where('id','\d+')
 ->name('profiles.show');
 
-Route::get('/profiles/create',[ProfilController::class,'create'])->name('create');
+
 Route::post('/profiles/store',[ProfilController::class,'store'])->name('store');
 
 Route::get('/setting',[InformationsController::class,'index'])->name('setting.index');

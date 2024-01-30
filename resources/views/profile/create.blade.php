@@ -1,6 +1,16 @@
 <x-master title="Mon Profile">
 
     <h3>Ajouter Profiles</h3>
+    @if ($errors->any())
+        <x-alert type="danger">
+            <h6>Errors</h6>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+        </x-alert>
+    @endif
 
     <form method="POST" action="{{ route('store') }}">
         @csrf
