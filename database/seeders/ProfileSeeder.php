@@ -14,6 +14,10 @@ class ProfileSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Profile::factory(20)->create();
+        \App\Models\Profile::factory(10)->create();
+        \App\Models\Profile::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
     }
 }

@@ -43,5 +43,10 @@ options
 // });
 Route::get('/',[HomeController::class,'index'])->name('homepage');
 Route::get('/profiles',[ProfilController::class,'index'])->name('profiles.index');
+Route::get('/profiles/{id}',[ProfilController::class,'show'])
+->where('id','\d+')
+->name('profiles.show');
+
 Route::get('/setting',[InformationsController::class,'index'])->name('setting.index');
+
 
