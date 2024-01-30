@@ -42,6 +42,6 @@ options
 //     ]);
 // });
 Route::get('/',[HomeController::class,'index'])->name('homepage');
-Route::get('/setting',[ProfilController::class,'index'])->name('setting.index');
-Route::get('/profiles',[InformationsController::class,'index'])->name('profiles.index');
+Route::get('/profiles',[ProfilController::class,'index'])->name('profiles.index');
+Route::get('/setting',[InformationsController::class,'index'])->name('setting.index');
 
