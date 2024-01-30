@@ -11,10 +11,15 @@ class ProfilController extends Controller
     public function index(){
 
         $profiles = Profile::paginate(10);
-        return view('profile',compact('profiles'));
+        return view('profile.index',compact('profiles'));
     }
     public function show(Request $request){
         $id = $request->id;
-        return "Profile";
+
+        $Profile =Profile::findOrFail($id);
+        // if($Profile === Null){
+        //     return abort(404);
+        // }
+        return view('profile.show',compact('Profile')); 
     }
 }
