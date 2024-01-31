@@ -12,6 +12,10 @@
                 @csrf    
                 <button class="btn btn-danger float-end" >Supprimer</button>
             </form>
+            <form action="{{ route('profiles.edit',$profile->id) }}">
+                @csrf   
+                <button class="btn btn-primary float-end mx-2" >Modifier</button>
+            </form>
         </div>
     </div>
 </div>

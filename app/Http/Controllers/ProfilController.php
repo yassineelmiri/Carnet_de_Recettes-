@@ -46,4 +46,15 @@ class ProfilController extends Controller
         $profile->delete();
         return to_route('profiles.index')->with('success','Le Profile a élé bien supprimer');
     }
+
+    public function edit(Profile $profile){
+        return view('profile.edit',compact('profile'));
+    }
+    public function update(ProfileRequest $request,Profile $profile){
+        $formFields = $request->validated();
+        $profile->fill($formFields)->save();
+        return to_route('profiles.show',$profile->id)->with('success','Le Profile a élé bien Modification');
+
+    }
 }
+
