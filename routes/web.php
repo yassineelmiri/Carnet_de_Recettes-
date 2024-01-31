@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformationsController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -42,15 +43,19 @@ options
 //     ]);
 // });
 Route::get('/',[HomeController::class,'index'])->name('homepage');
-Route::get('/profiles/create',[ProfilController::class,'create'])->name('create');
+Route::get('/login',[LoginController::class,'show'])->name('login.show');
+Route::post('/login',[LoginController::class,'login'])->name('login');
+Route::get('/lagout',[LoginController::class,'logout'])->name('login.logout');
+
 Route::get('/profiles',[ProfilController::class,'index'])->name('profiles.index');
+Route::get('/profiles/create',[ProfilController::class,'create'])
+->name('create');
 Route::get('/profiles/{profile}',[ProfilController::class,'show'])
 ->where('id','\d+')
 ->name('profiles.show');
-
-
-Route::post('/profiles/store',[ProfilController::class,'store'])->name('store');
-
-Route::get('/setting',[InformationsController::class,'index'])->name('setting.index');
+Route::post('/profiles/store',[ProfilController::class,'store'])
+->name('store');
+Route::get('/setting',[InformationsController::class,'index'])
+->name('setting.index');
 
 

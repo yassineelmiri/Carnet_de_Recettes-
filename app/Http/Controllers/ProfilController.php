@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProfileRequest;
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ProfilController extends Controller
 {
@@ -27,20 +29,17 @@ class ProfilController extends Controller
     public function create(){
         return view('profile.create');
     }
-    public function store(Request $request){
-        
-        // $name = $request->name;
-        // $email = $request->email;
-        // $password = $request->password;
-        // $bio = $request->bio;
+    public function store(ProfileRequest $request){
+
+
         //validation 
-        $request->validate([
-            'name'=>'required',
-            'email'=> 'required|email',
-            
-        ]);
+        $formFields = $request->validated();
+        //Hash
+        $formFields['password'] = Hash::make($request->password);
+      
         //insertion
-        Profile::create($request->post());
+        Profile::create($formFields);
+        //redirection
         return redirect()->route('profiles.index')->with('success','votre Compte est bien créé.');
     }
 }

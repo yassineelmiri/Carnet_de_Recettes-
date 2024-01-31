@@ -16,19 +16,23 @@
         @csrf
         <div class="mb-3">
             <label for="" class="form-label">Name</label>
-            <input type="text" name="name" class="form-control" />
+            <input type="text" name="name" class="form-control" value="{{ old('name') }}"/>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">email</label>
-            <input type="text" name="email" class="form-control" />
+            <input type="text" name="email" class="form-control" value="{{ old('email') }}" />
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Mot de passe</label>
-            <input type="password" name="password" class="form-control" />
+            <input type="password" name="password" class="form-control"value="{{ old('password') }}"/>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">valide le Mot de passe</label>
+            <input type="password" name="password_confirmation" class="form-control" />
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Description</label>
-            <textarea type="text" name="bio" class="form-control"></textarea>
+            <textarea type="text" name="bio" class="form-control" >{{ old('bio') }}</textarea>
         </div>
         <div class="d-grid my-2">
             <button type="submit" class="btn btn-primary btn-block">

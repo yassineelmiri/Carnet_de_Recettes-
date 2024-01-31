@@ -11,18 +11,48 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('homepage') }}">Accueil</a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="/profile">Mon profile</a>
-                </li> --}}
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('profiles.index') }}">Mon profile</a>
                 </li>
+
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('setting.index') }}">Mes informations</a>
                 </li>
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login.logout') }}">Déconnection</a>
+                    </li>
+                @endauth
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login.show') }}">Se connecter</a>
+                    </li>
+                @endguest
+
+
+
+
+                {{-- <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button">
+                        {{ auth()->user()->name }}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a href="#" class="dropdown-item">Action</a>
+                        <a href="{{ route('login.logout') }}" class="dropdown-item">Déconnexion</a>
+                    </div>
+                    <ul class="dropdown-menu" style="">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div> --}}
+
+
 
             </ul>
-        
+
         </div>
     </nav>
 @endonce
