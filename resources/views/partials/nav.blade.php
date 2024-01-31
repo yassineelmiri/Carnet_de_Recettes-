@@ -11,16 +11,16 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('homepage') }}">Accueil</a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('profiles.index') }}">Mon profile</a>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('setting.index') }}">Mes informations</a>
-                </li>
                 @auth
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('profiles.index') }}">Mon profile</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('setting.index') }}">Mes informations</a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login.logout') }}">Déconnection</a>
                     </li>

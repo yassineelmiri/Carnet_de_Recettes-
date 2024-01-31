@@ -42,4 +42,8 @@ class ProfilController extends Controller
         //redirection
         return redirect()->route('profiles.index')->with('success','votre Compte est bien créé.');
     }
+    public function destroy(Profile $profile){
+        $profile->delete();
+        return to_route('profiles.index')->with('success','Le Profile a élé bien supprimer');
+    }
 }

@@ -55,6 +55,8 @@ Route::get('/profiles/{profile}',[ProfilController::class,'show'])
 ->name('profiles.show');
 Route::post('/profiles/store',[ProfilController::class,'store'])
 ->name('store');
+Route::delete('/profiles/{profile}',[ProfilController::class,'destroy'])
+->name('profiles.destroy');
 Route::get('/setting',[InformationsController::class,'index'])
 ->name('setting.index');
 
