@@ -37,7 +37,10 @@ class ProfilController extends Controller
         //Hash
         $formFields['password'] = Hash::make($request->password);
       
-        //insertion
+        //insert image
+        $formFields['image'] =  $request->file('image')->store('profile','public') ;
+        
+        //insertion profile
         Profile::create($formFields);
         //redirection
         return redirect()->route('profiles.index')->with('success','votre Compte est bien créé.');
