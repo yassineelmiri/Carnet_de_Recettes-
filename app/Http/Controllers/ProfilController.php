@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfilController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        // ->except(['show']);
+    }
     public function index()
     {
 
@@ -44,9 +49,9 @@ class ProfilController extends Controller
 
         //insert image
         // $formFields['image'] = $request->file('image')->store('profile', 'public');
-        
-        $formFields['image'] = $this->uploadImage($request);
-        
+
+        $this->uploadImage($request, $formFields);
+
 
         //insertion profile
         Profile::create($formFields);
@@ -72,21 +77,21 @@ class ProfilController extends Controller
         $formFields['password'] = Hash::make($request->password);
         //insert image
         //insert image
-        $formFields['image'] = $this->uploadImage($request);
-        
-        
+        $this->uploadImage($request, $formFields);
+
+
         $profile->fill($formFields)->save();
         return to_route('profiles.show', $profile->id)->with('success', 'Le Profile a élé bien Modification');
 
     }
 
-    private function uploadImage(ProfileRequest $request)
+    private function uploadImage(ProfileRequest $request, array &$formFields)
     {
 
         //insert image
-
+        unset($formFields['image']);
         if ($request->hasfile('image')) {
-            return $request->file('image')->store('profile', 'public');
+            $formFields['image'] = $request->file('image')->store('profile', 'public');
         }
     }
 }

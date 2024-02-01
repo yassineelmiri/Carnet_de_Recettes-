@@ -22,7 +22,7 @@
 
 
             <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
-            <button type="button" class="btn btn-outline-primary mt-5"><a href="{{ route('create') }}">Créer nouveau compte</a></button>
+            <button type="button" class="btn btn-outline-primary mt-5"><a href="{{ route('profiles.create') }}">Créer nouveau compte</a></button>
 
             <p class="mt-5 mb-3 text-body-secondary">&copy; 2024–2025</p>
         </form>

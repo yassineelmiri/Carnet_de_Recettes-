@@ -12,7 +12,7 @@
         </x-alert>
     @endif
 
-    <form method="POST" action="{{ route('store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('profiles.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label  class="form-label">Name</label>
