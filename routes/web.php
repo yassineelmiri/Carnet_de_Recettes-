@@ -42,6 +42,9 @@ options
 //         'prenom'=>$request->prenom,
 //     ]);
 // });
+
+
+
 Route::get('/',[HomeController::class,'index'])->name('homepage');
 
 //login
@@ -50,7 +53,8 @@ Route::post('/login',[LoginController::class,'login'])->name('login');
 Route::get('/lagout',[LoginController::class,'logout'])->name('login.logout');
 
 //ajouter
-Route::get('/profiles',[ProfilController::class,'index'])->name('profiles.index');
+Route::get('/profiles',[ProfilController::class,'index'])
+->name('profiles.index');
 Route::get('/profiles/create',[ProfilController::class,'create'])
 ->name('create');
 
@@ -59,20 +63,15 @@ Route::get('/profiles/{profile}',[ProfilController::class,'show'])
 ->where('id','\d+')
 ->name('profiles.show');
 
-Route::post('/profiles/store',[ProfilController::class,'store'])
-->name('store');
+Route::post('/profiles/store',[ProfilController::class,'store'])->name('store');
 
 //supprimer
-Route::delete('/profiles/{profile}',[ProfilController::class,'destroy'])
-->name('profiles.destroy');
+Route::delete('/profiles/{profile}',[ProfilController::class,'destroy'])->name('profiles.destroy');
 
 //modifier
-Route::get('/profiles/{profile}/edit',[ProfilController::class,'edit'])
-->name('profiles.edit');
-Route::put('/profiles/{profile}',[ProfilController::class,'update'])
-->name('profiles.update');
+Route::get('/profiles/{profile}/edit',[ProfilController::class,'edit'])->name('profiles.edit');
+Route::put('/profiles/{profile}',[ProfilController::class,'update'])->name('profiles.update');
 
-Route::get('/setting',[InformationsController::class,'index'])
-->name('setting.index');
+Route::get('/setting',[InformationsController::class,'index'])->name('setting.index');
 
 
