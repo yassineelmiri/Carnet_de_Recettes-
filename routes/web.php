@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformationsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\PublicationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -70,4 +71,15 @@ Route::get('/setting', [InformationsController::class, 'index'])->name('setting.
 // });
 
 Route::resource('profiles',ProfilController::class);
-Route::get('/route',function(){});
+
+Route::resource('publication',PublicationController::class);
+
+// Route::post('/form',function( Request $request){
+//     $request->mergeIfMissing(['input_field'=>date('Y-m-d')]);
+//     dd($request->input_field,'...');
+//     $request->hasAny(['input_field','input_filedl2'],function(){
+
+//     });
+// })->name('form');
+
+// Route::view('/form','form');

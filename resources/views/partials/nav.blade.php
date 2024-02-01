@@ -15,6 +15,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('profiles.index') }}">Mon profile</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('publication.create') }}">Ajouter un recette</a>
+                    </li>
 
 
                     <li class="nav-item">

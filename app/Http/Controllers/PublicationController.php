@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PublicationRequest;
 use App\Models\Publication;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -21,15 +22,28 @@ class PublicationController extends Controller
      */
     public function create()
     {
-        
+        return view('publication.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PublicationRequest $request)
     {
        
+        $formFields = $request->validated();
+        $this->uploadImage($request,$formFields);
+        Publication::create($formFields);
+        return to_route('publication.index')->with('success', 'votre recette a été bien create .');
+       
+    }
+    private function uploadImage(PublicationRequest $request, array &$formFields)
+    {
+        //insert image
+        unset($formFields['image']);
+        if ($request->hasfile('image')) {
+            $formFields['image'] = $request->file('image')->store('publication', 'public');
+        }
     }
 
     /**
@@ -45,15 +59,19 @@ class PublicationController extends Controller
      */
     public function edit(Publication $publication)
     {
-        //
+        return view('publication.edit',compact($publication));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Publication $publication)
+    public function update(PublicationRequest $request, Publication $publication)
     {
-        //
+        $formFields = $request->validated();
+        $this->uploadImage($request,$formFields)->with('success', 'votre recette a été bien modifier .');
+        $publication->fill($formFields)->save();
+        return to_route('publication.index');
+
     }
 
     /**

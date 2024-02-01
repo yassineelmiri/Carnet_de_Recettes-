@@ -10,4 +10,10 @@ class Publication extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    protected $fillable = [
+        'titer',
+        'body',
+        'image'
+    ];
 }
