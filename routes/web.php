@@ -48,13 +48,10 @@ options
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
 
-//login
-Route::middleware('guest')->group(function(){
-    Route::get('/login', [LoginController::class, 'show'])->name('login.show');
-    Route::post('/login', [LoginController::class, 'login'])->name('login');
-});
 
-Route::get('/lagout', [LoginController::class, 'logout'])->name('login.logout')->middleware('auth');
+Route::get('/login', [LoginController::class, 'show'])->name('login.show');
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/lagout', [LoginController::class, 'logout'])->name('login.logout');
 
 Route::get('/setting', [InformationsController::class, 'index'])->name('setting.index');
 

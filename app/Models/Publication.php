@@ -14,6 +14,7 @@ class Publication extends Model
     protected $fillable = [
         'titer',
         'body',
-        'image'
+        'image',
+        'profile_id'
     ];
 }

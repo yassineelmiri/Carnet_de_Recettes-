@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\PublicationRequest;
 use App\Models\Publication;
 use App\Http\Controllers\Controller;
@@ -14,7 +14,8 @@ class PublicationController extends Controller
      */
     public function index()
     {
-        
+       $publications = Publication::latest()->paginate(3);
+        return view('publication.index',compact('publications'));
     }
 
     /**
@@ -33,6 +34,7 @@ class PublicationController extends Controller
        
         $formFields = $request->validated();
         $this->uploadImage($request,$formFields);
+        $formFields['profile_id'] = Auth::id();
         Publication::create($formFields);
         return to_route('publication.index')->with('success', 'votre recette a été bien create .');
        
@@ -59,7 +61,7 @@ class PublicationController extends Controller
      */
     public function edit(Publication $publication)
     {
-        return view('publication.edit',compact($publication));
+        return view('publication.edit',compact('publication'));
     }
 
     /**
@@ -68,9 +70,9 @@ class PublicationController extends Controller
     public function update(PublicationRequest $request, Publication $publication)
     {
         $formFields = $request->validated();
-        $this->uploadImage($request,$formFields)->with('success', 'votre recette a été bien modifier .');
+        $this->uploadImage($request,$formFields);
         $publication->fill($formFields)->save();
-        return to_route('publication.index');
+        return to_route('publication.index')->with('success', 'votre recette a été bien modifier .');
 
     }
 
@@ -79,6 +81,9 @@ class PublicationController extends Controller
      */
     public function destroy(Publication $publication)
     {
-        //
+        $publication->delete();
+        return to_route('publication.index')->with('success', 'votre recette a été bien supprimer .');
+
+
     }
 }

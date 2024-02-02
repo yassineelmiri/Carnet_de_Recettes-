@@ -3,7 +3,7 @@
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">Exemple d'album</h1>
+                    <h1 class="fw-light">Welcome de my site recette</h1>
                     <p class="lead text-body-secondary">Une brève description de l'album ci-dessous (son contenu, son
                         origine, etc.). Soyez bref et agréable, mais pas au point que les gens ne sautent pas
                         complètement cet album.</p>

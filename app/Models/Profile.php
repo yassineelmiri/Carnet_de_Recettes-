@@ -22,4 +22,7 @@ class Profile extends Model
     public function getImageAttribute($value){
         return $value??'profile/AcrF4Qg7ux89NUng2KtdPimqrqiigAJ9DKBzcIUv.png';
     }
+    public function publications(){
+        return $this->hasMany(Publication::class);
+    }
 }

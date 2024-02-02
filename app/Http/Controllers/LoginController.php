@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-// use Illuminate\Contracts\Session\Session;
-use \Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 use Illuminate\Http\Request;
-use Session;
+
 
 class LoginController extends Controller
 {
@@ -31,6 +32,6 @@ class LoginController extends Controller
     public function logout(){
         Session::flush();
         Auth::logout();
-        return to_route('login')->with('success','Vous étes bien déconnecté.');
+        return to_route('login.show')->with('success','Vous étes bien déconnecté.');
     }
 }
