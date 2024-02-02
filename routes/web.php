@@ -48,6 +48,7 @@ options
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
 
+Route::get('/publications/search', [PublicationController::class, 'search'])->name('publication.search');
 
 Route::get('/login', [LoginController::class, 'show'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
