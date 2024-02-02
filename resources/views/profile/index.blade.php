@@ -1,8 +1,9 @@
 <x-master title="Profiles">
 
     <h3>Profiles</h3>
-    <a  class="btn btn-primary mt-5 " href="{{ route('profiles.create') }}">Créer nouveau compte</a>
-
+    @if (auth()->user()->name === 'chef baba')
+        <a class="btn btn-primary mt-5 " href="{{ route('profiles.create') }}">Créer nouveau compte</a>
+    @endif
     <div class="row my-5">
         @foreach ($profiles as $profile)
             <x-profile-card :profile="$profile" />

@@ -21,8 +21,7 @@
                     <div class="col">
                         <div class="card shadow-sm">
                             <img class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                src="https://picsum.photos/200/300" alt="Title" width="72"
-                                height="200" />
+                                src="https://picsum.photos/200/300" alt="Title" width="72" height="200" />
                             <div class="card-body">
                                 <p class="card-text">Il s'agit d'une carte plus large avec un texte à l'appui ci-dessous
                                     comme introduction naturelle au contenu supplémentaire. Ce contenu est un peu plus
@@ -42,8 +41,7 @@
                     <div class="col">
                         <div class="card shadow-sm">
                             <img class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                src="https://picsum.photos/200/300" alt="Title" width="72"
-                                height="200" />
+                                src="https://picsum.photos/200/300" alt="Title" width="72" height="200" />
 
                             <div class="card-body">
                                 <p class="card-text">Il s'agit d'une carte plus large avec un texte à l'appui ci-dessous
@@ -64,8 +62,7 @@
                     <div class="col">
                         <div class="card shadow-sm">
                             <img class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                src="https://picsum.photos/200/300" alt="Title" width="72"
-                                height="200" />
+                                src="https://picsum.photos/200/300" alt="Title" width="72" height="200" />
                             <div class="card-body">
                                 <p class="card-text">Il s'agit d'une carte plus large avec un texte à l'appui ci-dessous
                                     comme introduction naturelle au contenu supplémentaire. Ce contenu est un peu plus
@@ -88,6 +85,6 @@
         </div>
 
     </main>
-    <x-index-user :users='$users' />
+    {{-- <x-index-user :users='$users' /> --}}
 
 </x-master>
