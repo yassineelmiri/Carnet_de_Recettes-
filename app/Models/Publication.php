@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Profile;
 
 class Publication extends Model
 {
@@ -17,4 +18,8 @@ class Publication extends Model
         'image',
         'profile_id'
     ];
+    public function profile(){
+       return $this->belongsTo(Profile::class);
+    }
+
 }

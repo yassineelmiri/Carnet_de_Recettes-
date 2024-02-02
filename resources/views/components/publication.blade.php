@@ -1,5 +1,6 @@
 <div class="card my-2 bg-light">
     <div class="card-body">
+  
         @auth
             @if ($canUpdate === true )
                 <a class="float-end btn btn-primary btn-sm"
@@ -13,7 +14,15 @@
             @endif
         @endauth
         <blockquote class="blockquote mb-0">
-            <h3>{{ $publication->titer }}</h3>
+            <div class="container bg-lenght">
+                <div class="col-md-4">
+                    <img class="rounded-circle" src="{{ asset('storage/'.$publication->profile->image) }}" width="100px" alt="image">
+                    <h3>{{$publication->profile->name }}</h3>
+                    <a href="{{ route('profiles.show',$publication->profile->id) }}" class="stretched-link"></a>
+                </div>
+            </div>
+            <hr>
+            <h5>{{ $publication->titer }}</h5>
             <p> {{ $publication->body }}</p>
             @if (!is_null($publication->image))
                 <footer class="blockquote-footer">
